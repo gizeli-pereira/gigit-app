@@ -4,11 +4,9 @@ const Schema = mongoose.Schema;
 
 const postSchema = new Schema({
     title: {String,
-    required: true
     },
     content: {
         type: String,
-        required: true
     },
     user: {
         type: Schema.Types.ObjectId,
