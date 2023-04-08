@@ -1,0 +1,18 @@
+<%- include('../partials/header') %>
+
+<h2>Take a look of the posts!</h2>
+<div>
+    <div>
+        <div>Title:</div>
+        <div>Content:</div>
+    </div>
+    <% posts.forEach(function(p) { %>
+    <div>
+        <div><%= p.title %></div>
+        <div><%= p.content %></div>
+        <div><a href="/posts/<%= p._id %>">Show comments</a></div>
+    </div>
+    <% }); %>
+</div>
+
+<%- include('../partials/footer') %>
