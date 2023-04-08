@@ -15,6 +15,8 @@ router.get('/:id', postsCtrl.show);
 // POST /posts
 router.post('/', postsCtrl.create);
 
+//DELETE /posts/:id
+router.delete('/:id', postsCtrl.delete);
 
 
 

@@ -4,10 +4,14 @@
 <form action="/posts" method="POST">
   <label>Title:
     <input type="text" name="title">
-  </label><br>
+  </label>
+  <br />
+  <br />
   <label>Content:
-    <input type="text" name="content">
-  </label><br>
+    <textarea name="content" id="" cols="30" rows="5"></textarea>
+  </label>
+  <br />
+  <br />
   <button type="submit">Add Post</button>
 </form>
 <p><%= errorMsg %></p>

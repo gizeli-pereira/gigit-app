@@ -4,7 +4,8 @@ module.exports = {
     index,
     show,
     new: newPost,
-    create
+    create,
+    delete: deletePost
 };
 
 
@@ -31,4 +32,9 @@ async function create(req, res) {
         console.log(err);
         res.render('posts/new', { errorMsg: err.message });
       }
+}
+
+async function deletePost(req, res) {
+    const post = await Post.findByIdAndDelete(req.params.id);
+    res.redirect('/posts');
 }
