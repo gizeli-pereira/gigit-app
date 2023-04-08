@@ -9,8 +9,12 @@ router.get('/', postsCtrl.index);
 // GET /posts/new
 router.get('/new', postsCtrl.new);
 
+// GET /posts/:id 
+router.get('/:id', postsCtrl.show);
+
 // POST /posts
 router.post('/', postsCtrl.create);
+
 
 
 

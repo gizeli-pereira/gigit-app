@@ -7,4 +7,28 @@
     <div><%= post.content %></div>
 </section>
 
+<br />
+
+<h2>Comments</h2>
+<form id="add-comment-form" method="POST" action="/posts/<%= post._id %>/comments">
+    <label>Comment:</label>
+    <textarea name="content" id="" cols="30" rows="10"></textarea>
+    <input type="submit" value="Add Comment">
+</form>
+
+<% if (post.comments.length) { %>
+    <div>
+        <div>Date</div>
+        <div>Comment</div>
+    </div>
+    <div>
+        <% post.comments.forEach(function(c) { %>
+            <div><%= c.createdAt.toLocaleDateString() %></div>
+            <div><%= c.content %></div>
+        <% }); %>
+    </div>
+<% } else { %>
+    <h5>No Comments Yet!</h5>
+<% } %>
+
 <%- include('../partials/footer') %>

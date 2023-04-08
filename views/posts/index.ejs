@@ -1,6 +1,6 @@
 <%- include('../partials/header') %>
 
-<h2>Take a look of the posts!</h2>
+<h2>Take a look at the posts!</h2>
 <div>
     <div>
         <div>Title:</div>
@@ -9,7 +9,9 @@
     <% posts.forEach(function(p) { %>
     <div>
         <div><%= p.title %></div>
+        <br />
         <div><%= p.content %></div>
+        <br />
         <div><a href="/posts/<%= p._id %>">Show comments</a></div>
     </div>
     <% }); %>
