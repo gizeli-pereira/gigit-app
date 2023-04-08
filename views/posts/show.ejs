@@ -20,14 +20,21 @@
         <div>Date</div>
         <div>Comment</div>
     </div>
+    
     <div>
         <% post.comments.forEach(function(c) { %>
             <div><%= c.createdAt.toLocaleDateString() %></div>
             <div><%= c.content %></div>
+            <div>
+                <form action="/comments/<%= c._id %>?_method=DELETE" class="delete-form" method="POST">
+                <button type="submit" id="delete-comment">X</button>
+                </form>
+            </div>
         <% }); %>
     </div>
 <% } else { %>
     <h5>No Comments Yet!</h5>
+    
 <% } %>
 
 <%- include('../partials/footer') %>

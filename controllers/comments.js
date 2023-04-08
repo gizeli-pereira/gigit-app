@@ -1,7 +1,8 @@
 const Post = require('../models/post');
 
 module.exports = {
-    create
+    create,
+    delete: deleteComment
 };
 
 async function create(req, res) {
@@ -14,3 +15,11 @@ async function create(req, res) {
     }
     res.redirect(`/posts/${post._id}`);
 }
+
+async function deleteComment(req, res) {
+    const post = await Post.findOne({'comments._id': req.params.id });
+    if (!post) return res.redirect('/posts');
+    post.comments.remove(req.params.id);
+    await post.save();
+    res.redirect(`/posts/${post._id}`);
+  }
