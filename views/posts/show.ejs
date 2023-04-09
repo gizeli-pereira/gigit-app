@@ -6,6 +6,7 @@
     <div>Content:</div>
     <div><%= post.content %></div>
 </section>
+<button type="submit" id="edit-btn"><a href="/posts/<%= post._id %>/edit">Edit Post</a></button>
 
 <br />
 
@@ -13,6 +14,7 @@
 <form id="add-comment-form" method="POST" action="/posts/<%= post._id %>/comments">
     <textarea name="content" id="" cols="30" rows="5"></textarea>
     <input type="submit" value="Add Comment">
+   
 </form>
 
 <% if (post.comments.length) { %>
@@ -25,12 +27,15 @@
         <% post.comments.forEach(function(c) { %>
             <div><%= c.createdAt.toLocaleDateString() %></div>
             <div><%= c.content %></div>
+            <!-- <button type="submit" id="edit-btn"><a href="/posts/<%= c._id %>/editcom">Edit Comment</a></button> -->
             <div>
                 <form action="/comments/<%= c._id %>?_method=DELETE" class="delete-form" method="POST">
                 <button type="submit" id="delete-comment">X</button>
                 </form>
             </div>
+           
         <% }); %>
+        
     </div>
 <% } else { %>
     <h5>No Comments Yet!</h5>
