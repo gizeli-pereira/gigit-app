@@ -1,7 +1,7 @@
 <%- include('../partials/header') %>
 
+<div class="add-post-container">
 <% if (user) { %>
-
 <form action="/posts" method="POST">
   <label>Title:
     <input type="text" name="title">
@@ -9,7 +9,7 @@
   <br />
   <br />
   <label>Content:
-    <textarea name="content" id="" cols="30" rows="5"></textarea>
+    <textarea placeholder="Bla bla bla..." name="content" id="" cols="30" rows="5"></textarea>
   </label>
   <br />
   <br />
@@ -17,5 +17,5 @@
 </form>
 <% } %>
 <p><%= errorMsg %></p>
-
+</div>
 <%- include('../partials/footer') %>

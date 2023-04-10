@@ -41,7 +41,7 @@ nav > a.active {
   cursor: default;
 }
 
-#comment, a {
+#comment, a, #delete-post-btn {
   border-radius: 4px;
   background-color: #ACD8AA;
   padding: 4px;
@@ -49,11 +49,11 @@ nav > a.active {
   font-size: 14px;
 }
 
- a:hover, #comment:hover {
+ a:hover, #comment:hover, #delete-post-btn {
   background-color: #FFE6E8;
 }
 
-a, button, #comment {
+a, button, #comment, #delete-post-btn {
   box-shadow: inset 0 0 0 0 #F48498;
   color: #001219;
   padding: 0 .25rem;
@@ -61,14 +61,11 @@ a, button, #comment {
   transition: color .5s ease-in-out, box-shadow .3s ease-in-out;
  }
 
- a:hover, button:hover, #comment:hover {
+ a:hover, button:hover, #comment:hover, #delete-post-btn:hover  {
   color: #fff;
   box-shadow: inset 200px 0 0 0 #F48498;
  }
 
- #delete-post-btn {
-  color: #E78F8E;
- }
 .login {
   display: flex;
   justify-content: center;
@@ -95,4 +92,22 @@ a, button, #comment {
   display: grid;
   grid-template-columns: auto auto;
   grid-gap: 1rem;
+}
+
+.add-post-container {
+  width: 95%;
+  margin: 0 auto;
+}
+
+h1 {
+  margin-left: 0.9em;
+}
+
+input {
+  margin-left: 2em;
+}
+
+p {
+  margin-left: 2em;
+  font-size: 1.5em;
 }

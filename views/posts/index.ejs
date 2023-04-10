@@ -1,23 +1,34 @@
 <%- include('../partials/header') %>
 
 <div class="allposts-container">
-    <% posts.forEach(function(p) { %>
+    <!-- Show Posts from the newest to oldest using 'sort' -->
+    <% posts.sort(function(a, b) { return b.createdAt - a.createdAt; }).forEach(function(p) { %>
         <div class="user-comments"><img alt="avatar" src="<%= p.userAvatar %>" referrerpolicy="no-referrer" ><%= p.userName %></div>
     <div>
+        <div><%= p.createdAt.toLocaleDateString() %></div>
         <div><strong><%= p.title %></strong></div>
         <br />
         <div><%= p.content %></div>
         <br />
         <div><a href="/posts/<%= p._id %>">Show comments</a></div>
+        
+        <br/ >
+       
         <div>
+            <% if (user?._id.equals(p.user)) { %>
+                <button type="submit" id="edit-btn"><a href="/posts/<%= p._id %>/edit">Edit Post</a></button>
+                <% } %>
             <% if (user?._id.equals(p.user)) { %>
                 <form action="/posts/<%= p._id %>?_method=DELETE" class="delete-form" method="POST">
                     <button type="submit" id="delete-post-btn">Delete Post</button>
                 </form>
             <% } %>
         </div>
+            <br/ >
+            <br/ >
     </div>
     <% }); %>
 </div>
+
 
 <%- include('../partials/footer') %>

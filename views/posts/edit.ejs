@@ -2,8 +2,8 @@
 
 <% if (user?._id.equals(post.user)) { %>
 <form action="/posts/<%= post._id %>?_method=PUT" method="POST">
- <input type="text" name="content" value="<%= post.content %>"></input>
-  <button type="submit">Save Changes</button>
+  <input style="height:50px; width: 300px; font-size:14pt" id="input size" type="text" name="content" value="<%= post.content %>"></input>
+  <button id="comment" type="submit">Save Changes</button>
 </form>
 <% } %>
 
