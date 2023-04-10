@@ -27,6 +27,10 @@ function newPost(req, res) {
 }
 
 async function create(req, res) {
+    req.body.user = req.user._id;
+    req.body.userName = req.user.name;
+    req.body.userAvatar = req.user.avatar;
+
     try {
         const post = await Post.create(req.body);
         res.redirect(`/posts/${post._id}`);
@@ -48,8 +52,9 @@ async function edit(req, res) {
 
 async function update(req, res) {
     try {
-        const post = await Post.findByIdAndUpdate(req.params.id, req.body, { new: true });
+        const post = await Post.findByIdAndUpdate(req.params.id, req.body, {new: true });
         res.redirect(`/posts/${post._id}`);
+        
     } catch (err) {
         console.log(err);
         res.render('posts/edit', { title: 'Edit Post', post: req.body, errorMsg: err.message });

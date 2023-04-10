@@ -26,3 +26,14 @@ body > nav {
 .login img {
   height: 30px;
 }
+
+.user-comments {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.user-comments img {
+  border-radius: 50%;
+  height: 40px;
+}

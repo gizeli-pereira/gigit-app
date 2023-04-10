@@ -6,16 +6,21 @@
     <div>Content:</div>
     <div><%= post.content %></div>
 </section>
+<% if (user?._id.equals(post.user)) { %>
 <button type="submit" id="edit-btn"><a href="/posts/<%= post._id %>/edit">Edit Post</a></button>
+<% } %>
 
 <br />
 
+
 <h2>Comments</h2>
+<% if (user) { %>
 <form id="add-comment-form" method="POST" action="/posts/<%= post._id %>/comments">
     <textarea name="content" id="" cols="30" rows="5"></textarea>
     <input type="submit" value="Add Comment">
    
 </form>
+<% } %>
 
 <% if (post.comments.length) { %>
     <div>
@@ -25,13 +30,18 @@
     
     <div>
         <% post.comments.forEach(function(c) { %>
+            <div class="user-comments"><img alt="avatar" src="<%= c.userAvatar %>" referrerpolicy="no-referrer" ><%= c.userName %></div>
             <div><%= c.createdAt.toLocaleDateString() %></div>
             <div><%= c.content %></div>
-            <!-- <button type="submit" id="edit-btn"><a href="/posts/<%= c._id %>/editcom">Edit Comment</a></button> -->
+
+            <!-- <button type="submit" id="edit-btn"><a href="/comments/<%= c._id %>/edit">Edit Comment</a></button> -->
+            
             <div>
-                <form action="/comments/<%= c._id %>?_method=DELETE" class="delete-form" method="POST">
-                <button type="submit" id="delete-comment">X</button>
-                </form>
+                <% if (user?._id.equals(c.user)) { %>
+                    <form action="/comments/<%= c._id %>?_method=DELETE" class="delete-form" method="POST">
+                    <button type="submit" id="delete-comment">X</button>
+                    </form>
+                <% } %>
             </div>
            
         <% }); %>

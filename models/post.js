@@ -6,14 +6,14 @@ const commentSchema = new Schema({
     content: {
         type: String,
         required: true
-    }
-    // user: {
-    //     type: Schema.Types.ObjectId,
-    //     ref: 'User',
-    //     // required: true
-    // },
-    // userName: String,
-    // userAvatar: String
+    },
+    user: {
+        type: Schema.Types.ObjectId,
+        ref: 'User',
+        // required: true
+    },
+    userName: String,
+    userAvatar: String
 }, {
     timestamps: true
 });
@@ -27,14 +27,14 @@ const postSchema = new Schema({
         type: String,
         required: true
     },
-    comments: [commentSchema]
-    // user: {
-    //     type: Schema.Types.ObjectId,
-    //     ref: 'User',
-    //     // required: true
-    // },
-    // userName: String,
-    // userAvatar: String
+    comments: [commentSchema],
+    user: {
+        type: Schema.Types.ObjectId,
+        ref: 'User',
+        // required: true
+    },
+    userName: String,
+    userAvatar: String
 }, {
     timestamps: true
 });
