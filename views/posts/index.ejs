@@ -1,21 +1,18 @@
 <%- include('../partials/header') %>
 
-<h2>Take a look at the posts!</h2>
-<div>
+<div class="allposts-container">
     <% posts.forEach(function(p) { %>
         <div class="user-comments"><img alt="avatar" src="<%= p.userAvatar %>" referrerpolicy="no-referrer" ><%= p.userName %></div>
     <div>
-        <div>Title:</div>
-        <div><%= p.title %></div>
+        <div><strong><%= p.title %></strong></div>
         <br />
-        <div>Post:</div>
         <div><%= p.content %></div>
         <br />
         <div><a href="/posts/<%= p._id %>">Show comments</a></div>
         <div>
             <% if (user?._id.equals(p.user)) { %>
                 <form action="/posts/<%= p._id %>?_method=DELETE" class="delete-form" method="POST">
-                    <button type="submit" id="delete-post">X</button>
+                    <button type="submit" id="delete-post-btn">Delete Post</button>
                 </form>
             <% } %>
         </div>

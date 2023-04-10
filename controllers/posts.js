@@ -13,17 +13,17 @@ module.exports = {
 
 async function index(req, res) {
     const posts = await Post.find({});
-    res.render('posts/index', {title: 'All Posts', posts});
+    res.render('posts/index', {title: 'Take a look at the posts!', posts});
 }
 
 async function show(req, res) {
     const post = await Post.findById(req.params.id);
-    res.render('posts/show', { title: 'Post Details', post});
+    res.render('posts/show', { title: 'Take a look at what this poor soul wants...', post});
     console.log(req.params.id);
   }
 
 function newPost(req, res) {
-    res.render('posts/new', {title: 'Add Post', errorMsg: ''});
+    res.render('posts/new', {title: 'Ask for help, share your thoughts or whatever you want!', errorMsg: ''});
 }
 
 async function create(req, res) {

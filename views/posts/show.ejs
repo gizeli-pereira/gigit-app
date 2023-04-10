@@ -1,9 +1,7 @@
 <%- include('../partials/header') %>
 
 <section id="show-page">
-    <div>Title:</div>
-    <div><%= post.title %></div>
-    <div>Content:</div>
+    <div><strong><%= post.title %></strong></div>
     <div><%= post.content %></div>
 </section>
 <% if (user?._id.equals(post.user)) { %>
@@ -13,21 +11,19 @@
 <br />
 
 
-<h2>Comments</h2>
+<h2>Any thoughts?</h2>
 <% if (user) { %>
 <form id="add-comment-form" method="POST" action="/posts/<%= post._id %>/comments">
     <textarea name="content" id="" cols="30" rows="5"></textarea>
-    <input type="submit" value="Add Comment">
+    <input id="comment" type="submit" value="Add Comment">
    
 </form>
 <% } %>
 
+<br />
+<br />
+
 <% if (post.comments.length) { %>
-    <div>
-        <div>Date</div>
-        <div>Comment</div>
-    </div>
-    
     <div>
         <% post.comments.forEach(function(c) { %>
             <div class="user-comments"><img alt="avatar" src="<%= c.userAvatar %>" referrerpolicy="no-referrer" ><%= c.userName %></div>
@@ -39,7 +35,7 @@
             <div>
                 <% if (user?._id.equals(c.user)) { %>
                     <form action="/comments/<%= c._id %>?_method=DELETE" class="delete-form" method="POST">
-                    <button type="submit" id="delete-comment">X</button>
+                    <button type="submit" id="comment">Delete Comment</button>
                     </form>
                 <% } %>
             </div>

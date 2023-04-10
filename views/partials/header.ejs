@@ -9,9 +9,9 @@
 </head>
 <body>
   <nav>
-    <a href="/" <%- title === 'Home' ? 'class="active"' : '' %>>HOME&nbsp;|&nbsp;</a>
-    <a href="/posts" <%- title === 'All Posts' ? 'class="active"' : '' %>>ALL POSTS&nbsp;|&nbsp;</a>
-    <a href="/posts/new" <%- title === 'New Post' ? 'class="active"' : '' %>>NEW POST&nbsp;|&nbsp;</a>
+    <a href="/" <%- title === 'Home' ? 'class="active"' : '' %>>HOME&nbsp;&nbsp;</a>
+    <a href="/posts" <%- title === 'All Posts' ? 'class="active"' : '' %>>ALL POSTS&nbsp;&nbsp;</a>
+    <a href="/posts/new" <%- title === 'New Post' ? 'class="active"' : '' %>>NEW POST&nbsp;&nbsp;</a>
     <% if (user) { %>
     <a href="/logout">LOG OUT</a>
     <% } else { %>
