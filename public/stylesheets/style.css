@@ -5,9 +5,10 @@
 }
 
 #gigit-title {
-  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-  font-size: 1.5em;
-  font-weight: 700;
+  /* border-radius: 50%; */
+  height: 60px;
+  padding-right: .5em;
+  margin-top: 1em;
 }
 
 body {
@@ -32,25 +33,15 @@ body > nav {
 
 .nav-container {
   display: flex;
-  justify-content: space-between;
+  justify-content:space-between;
 }
 
-/* nav > a {
+nav > a {
   margin: 20px;
   text-decoration: none;
   padding: 10px;
   border-radius: 5px;
 }
-
-nav > a:hover:not(.active) {
-  color: white;
-  background-color: #FFE6E8;
-}
-
-nav > a.active {
-  background-color: red;
-  cursor: default;
-} */
 
 #show-page, #edit-container {
   margin-left: 2em;
@@ -119,7 +110,7 @@ a, #comment {
   font-style: italic;
   font-size: .8em;
   font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-  margin-left: 30px;
+  margin-left: 20px;
   
 }
 
@@ -132,7 +123,7 @@ a, #comment {
   display: flex;
   padding: 1em;
   justify-content: space-between;
-  width: 20vw;
+  width: 40vw;
   margin-left: 2em;
 }
 

@@ -4,7 +4,7 @@
 <div class="allposts-container">
     <!-- Show Posts from the newest to oldest using 'sort' -->
     <% posts.sort(function(a, b) { return b.createdAt - a.createdAt; }).forEach(function(p) { %>
-     
+        
         <div class="user-post"><img alt="avatar" src="<%= p.userAvatar %>" referrerpolicy="no-referrer" ><%= p.userName %> -- </div>
         <div id="post-date"><%= p.createdAt.toLocaleDateString() %></div>
 
@@ -14,14 +14,12 @@
                     <strong><%= p.title %></strong>
                 </div>
                 <br />
-                    <div><%- p.content %></div>
+                <div><%- p.content %></div>
                 <br />
             </div>
-            <div>
-                <h6><%= p.comments.length %> comments </h6>
-            </div>
+           
             <div class="post-wrapper">
-                <button class="post-buttons"><a href="/posts/<%= p._id %>">Show Comments</a></button>
+                <button class="post-buttons"><a href="/posts/<%= p._id %>"><%= p.comments.length %> comments</a></button>
             <div>
                 <% if (user?._id.equals(p.user)) { %>
                     <button class="post-buttons" type="submit" id="edit-btn"><a href="/posts/<%= p._id %>/edit">Edit Post</a></button>
