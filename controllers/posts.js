@@ -18,7 +18,7 @@ async function index(req, res) {
 
 async function show(req, res) {
     const post = await Post.findById(req.params.id);
-    res.render('posts/show', { title: 'Take a look at what this poor soul wants...', post});
+    res.render('posts/show', { title: '', post});
     console.log(req.params.id);
   }
 

@@ -3,10 +3,12 @@
 <div id="edit-container">
   <% if (user?._id.equals(post.user)) { %>
   <form action="/posts/<%= post._id %>?_method=PUT" method="POST">
-    <input style="height:50px; width: 300px; font-size:14pt" id="input size" type="text" name="content" value="<%= post.content %>"></input>
+    <input style="height:50px; width: 300px; font-size:14pt" id="input size" type="text" name="content" 
+      value="<%= post.content %>">
+    </input>
       <br/ >
       <br/ >
-    <button id="comment" type="submit">Save Changes</button>
+    <button class="post-buttons" type="submit">Save Changes</button>
   </form>
   <% } %>
 </div>

@@ -2,7 +2,7 @@
 
 <div class="add-post-container">
 <% if (user) { %>
-<form action="/posts" method="POST">
+<form id="add-post-form" action="/posts" method="POST">
 
     <input placeholder="Title" type="text" name="title" maxlength="300">
 
@@ -19,7 +19,7 @@
     </script>
   <br />
   <br />
-  <button id="comment" type="submit">Add Post</button>
+  <button class="post-buttons" type="submit">Add Post</button>
 </form>
 <% } %>
 <p><%= errorMsg %></p>
