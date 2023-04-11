@@ -2,11 +2,9 @@
 
 <h3><%= title %></h3>
 <div id="edit-container">
-  
   <% if (user?._id.equals(post.user)) { %>
   <form action="/posts/<%= post._id %>?_method=PUT" method="POST">
-    <textarea id="myTextarea" type="text" name="content"><%= post.content %>
-    </textarea>
+    <textarea id="myTextarea" type="text" name="content"><%= post.content %></textarea>
     <script>
       tinymce.init({
         selector: 'textarea#myTextarea',
@@ -19,4 +17,5 @@
   </form>
   <% } %>
 </div>
+
 <%- include('../partials/footer') %>
