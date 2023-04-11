@@ -52,11 +52,11 @@ async function edit(req, res) {
 
 async function update(req, res) {
     try {
-        const post = await Post.findByIdAndUpdate(req.params.id, req.body, {new: true });
+        const post = await Post.findByIdAndUpdate(req.params.id, { content: req.body.content }, { new: true });
         res.redirect(`/posts/${post._id}`);
-        
     } catch (err) {
         console.log(err);
-        res.render('posts/edit', { title: 'Okay... Go ahead an change what you want', post: req.body, errorMsg: err.message });
+        const post = await Post.findById(req.params.id);
+        res.render('posts/edit', { title: 'Okay... Go ahead and change what you want', post, errorMsg: err.message });
     }
 }

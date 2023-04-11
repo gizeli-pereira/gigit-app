@@ -91,12 +91,7 @@ a, #comment {
   height: 30px;
 }
 
-
-
 .allposts-container {
-  /* display: grid;
-  grid-template-columns: auto auto;
-  grid-gap: 1rem; */
   margin-left: 2em;
   display: flex;
   align-items: center;
@@ -111,15 +106,13 @@ a, #comment {
   margin-left: .5em;
   font-size: .95em;
   font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-  /* border-bottom: 2px black solid; */ 
-  
-
 }
 
 .user-post img {
   border-radius: 50%;
   height: 40px;
   padding-right: .5em;
+  margin-top: 1em;
 }
 
 #post-date {
@@ -131,7 +124,6 @@ a, #comment {
 }
 
 .user-post-content {
-  /* border-bottom: 2px black solid; */
   width: 100%;
   margin-left: 5em;
 }
@@ -193,7 +185,16 @@ p {
   box-shadow: 5px 5px black;
   padding: 1em 2em;
   background-color:#FFE6E8;
-
-
+  margin-top: 1em;
   border: 3px solid black;
 }
+
+/*
+NEW POST, EDIT POST
+*/
+
+#input-new-title, #edit-container {
+  width: 85vw;
+  margin-top: 1em;
+}
+

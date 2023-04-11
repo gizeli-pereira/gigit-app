@@ -5,9 +5,9 @@
             <div id="post-title"><strong><%= post.title %></strong></div>
             <div><%- post.content %></div>
         </div>
-
+        <br />
         <% if (user?._id.equals(post.user)) { %>
-        <button type="submit" id="edit-btn"><a href="/posts/<%= post._id %>/edit">Edit Post</a></button>
+        <button type="submit" class="post-buttons" ><a href="/posts/<%= post._id %>/edit">Edit Post</a></button>
         <% } %>
 
         <br />
@@ -25,7 +25,7 @@
                 });
             </script>
             <br />
-            <input class="post-buttons" type="submit" value="Add Comment">
+            <button class="post-buttons" type="submit" value="Add Comment">Add Comment</button>
         
         </form>
         <% } %>
