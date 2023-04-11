@@ -41,6 +41,9 @@ nav > a.active {
   cursor: default;
 }
 
+#show-page, #edit-container {
+  margin-left: 2em;
+}
 #comment, a, #delete-post-btn {
   border-radius: 4px;
   background-color: #ACD8AA;
@@ -101,10 +104,6 @@ a, button, #comment, #delete-post-btn {
 
 h1 {
   margin-left: 0.9em;
-}
-
-input {
-  margin-left: 2em;
 }
 
 p {

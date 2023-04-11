@@ -2,8 +2,8 @@
 
 <section id="show-page">
     <div><strong><%= post.title %></strong></div>
-    <div><%= post.content %></div>
-</section>
+    <div><%- post.content %></div>
+
 <% if (user?._id.equals(post.user)) { %>
 <button type="submit" id="edit-btn"><a href="/posts/<%= post._id %>/edit">Edit Post</a></button>
 <% } %>
@@ -14,7 +14,15 @@
 <h2>Any thoughts?</h2>
 <% if (user) { %>
 <form id="add-comment-form" method="POST" action="/posts/<%= post._id %>/comments">
-    <textarea name="content" id="" cols="30" rows="5"></textarea>
+    <textarea name="content" id="myTextarea" cols="30" rows="5"></textarea>
+   <script>
+        tinymce.init({ 
+          selector: 'textarea#myTextarea',
+          plugins: 'autolink lists link image charmap print preview',
+          toolbar: 'undo redo | formatselect | bold italic backcolor | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image'
+        });
+      </script>
+      
     <input id="comment" type="submit" value="Add Comment">
    
 </form>
@@ -28,7 +36,7 @@
         <% post.comments.forEach(function(c) { %>
             <div class="user-comments"><img alt="avatar" src="<%= c.userAvatar %>" referrerpolicy="no-referrer" ><%= c.userName %></div>
             <div><%= c.createdAt.toLocaleDateString() %></div>
-            <div><%= c.content %></div>
+            <div><%- c.content %></div>
 
             <!-- <button type="submit" id="edit-btn"><a href="/comments/<%= c._id %>/edit">Edit Comment</a></button> -->
             
@@ -47,5 +55,5 @@
     <h5>No Comments Yet!</h5>
     
 <% } %>
-
+</section>
 <%- include('../partials/footer') %>

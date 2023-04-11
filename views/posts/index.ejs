@@ -8,7 +8,7 @@
         <div><%= p.createdAt.toLocaleDateString() %></div>
         <div><strong><%= p.title %></strong></div>
         <br />
-        <div><%= p.content %></div>
+        <div><%- p.content %></div>
         <br />
         <div><a href="/posts/<%= p._id %>">Show comments</a></div>
         

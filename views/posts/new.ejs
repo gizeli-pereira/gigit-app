@@ -3,14 +3,20 @@
 <div class="add-post-container">
 <% if (user) { %>
 <form action="/posts" method="POST">
-  <label>Title:
-    <input type="text" name="title">
-  </label>
+
+    <input placeholder="Title" type="text" name="title" maxlength="300">
+
   <br />
   <br />
-  <label>Content:
-    <textarea placeholder="Bla bla bla..." name="content" id="" cols="30" rows="5"></textarea>
-  </label>
+  
+    <textarea placeholder="Bla bla bla..." name="content" id="myTextarea" cols="30" rows="5"></textarea>
+    <script>
+      tinymce.init({
+        selector: 'textarea#myTextarea',
+        plugins: 'autolink lists link image charmap print preview',
+        toolbar: 'undo redo | formatselect | bold italic backcolor | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image'
+      });
+    </script>
   <br />
   <br />
   <button id="comment" type="submit">Add Post</button>
