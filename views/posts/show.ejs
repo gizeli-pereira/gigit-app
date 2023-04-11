@@ -26,7 +26,6 @@
             </script>
             <br />
             <button class="post-buttons" type="submit" value="Add Comment">Add Comment</button>
-        
         </form>
         <% } %>
 
@@ -41,9 +40,11 @@
                         <div id="post-date"><%= c.createdAt.toLocaleDateString() %></div>
                     </div>
                     <div><%- c.content %></div>
-
-                    <!-- <button type="submit" id="edit-btn"><a href="/comments/<%= c._id %>/edit">Edit Comment</a></button> -->
-                    
+                    <!-- <div>
+                        <% if (user?._id.equals(c.user)) { %>
+                            <button class="post-buttons" type="submit" id="edit-btn"><a href="/posts/<%= c._id %>/editcom">Edit Comment</a></button>
+                        <% } %>
+                    </div> -->
                     <div>
                         <% if (user?._id.equals(c.user)) { %>
                             <form action="/comments/<%= c._id %>?_method=DELETE" class="post-buttons" method="POST">

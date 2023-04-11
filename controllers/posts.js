@@ -47,7 +47,7 @@ async function deletePost(req, res) {
 
 async function edit(req, res) {
     const post = await Post.findById(req.params.id);
-    res.render('posts/edit', { title: 'Okay... Go ahead an change what you want', post});
+    res.render('posts/edit', { title: 'Go ahead and fix it!', post});
 }
 
 async function update(req, res) {
@@ -57,6 +57,6 @@ async function update(req, res) {
     } catch (err) {
         console.log(err);
         const post = await Post.findById(req.params.id);
-        res.render('posts/edit', { title: 'Okay... Go ahead and change what you want', post, errorMsg: err.message });
+        res.render('posts/edit', { title: '', post, errorMsg: err.message });
     }
 }

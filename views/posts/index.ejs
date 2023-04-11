@@ -1,5 +1,5 @@
 <%- include('../partials/header') %>
-
+<h3><%= title %></h3>
 <div class="allposts-container">
     <!-- Show Posts from the newest to oldest using 'sort' -->
     <% posts.sort(function(a, b) { return b.createdAt - a.createdAt; }).forEach(function(p) { %>
