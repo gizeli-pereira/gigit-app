@@ -12,9 +12,13 @@
         <br />
         <div><%- p.content %></div>
         <br />
+        <div><h6><%= p.comments.length %> comments </h6></div>
         <div class="post-wrapper">
+            
             <button class="post-buttons"><a href="/posts/<%= p._id %>">Show Comments</a></button>
+           
             <div>
+                
                 <% if (user?._id.equals(p.user)) { %>
                     <button class="post-buttons" type="submit" id="edit-btn"><a href="/posts/<%= p._id %>/edit">Edit Post</a></button>
                     <% } %>

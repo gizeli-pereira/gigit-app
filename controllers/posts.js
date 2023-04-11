@@ -17,8 +17,9 @@ async function index(req, res) {
 }
 
 async function show(req, res) {
-    const post = await Post.findById(req.params.id);
-    res.render('posts/show', { title: '', post});
+    const post = await Post.findById(req.params.id).populate('comments');
+    const commentsCount = post.comments.length;
+    res.render('posts/show', { title: '', post, commentsCount});
     console.log(req.params.id);
   }
 

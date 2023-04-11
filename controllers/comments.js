@@ -3,7 +3,6 @@ const Post = require('../models/post');
 module.exports = {
     create,
     delete: deleteComment
-    // update
 };
 
 async function create(req, res) {
@@ -30,12 +29,5 @@ async function deleteComment(req, res) {
     res.redirect(`/posts/${post._id}`);
   }
 
-// async function update(req, res) {
-//     const post = await Post.findOne({'comments._id': req.params.id });
-//     if (!post) return res.redirect('/posts');
-//     const comment = post.comments.id(req.params.id);
-//     if (!comment) return res.redirect(`/posts/${post._id}`);
-//     comment.text = req.body.text;
-//     await post.save();
-//     res.redirect(`/posts/${post._id}`);
-// }
+
+

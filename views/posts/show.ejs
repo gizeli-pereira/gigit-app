@@ -33,18 +33,13 @@
         <br />
 
         <% if (post.comments.length) { %>
-            <div>
+            <div>  
                 <% post.comments.forEach(function(c) { %>
                     <div class="post-comment">
                         <div class="user-post"><img alt="avatar" src="<%= c.userAvatar %>" referrerpolicy="no-referrer" ><%= c.userName %></div>
                         <div id="post-date"><%= c.createdAt.toLocaleDateString() %></div>
                     </div>
                     <div><%- c.content %></div>
-                    <!-- <div>
-                        <% if (user?._id.equals(c.user)) { %>
-                            <button class="post-buttons" type="submit" id="edit-btn"><a href="/posts/<%= c._id %>/editcom">Edit Comment</a></button>
-                        <% } %>
-                    </div> -->
                     <div>
                         <% if (user?._id.equals(c.user)) { %>
                             <form action="/comments/<%= c._id %>?_method=DELETE" class="post-buttons" method="POST">
@@ -54,7 +49,6 @@
                     </div>
                     <hr />
                 <% }); %>
-                
             </div>
         <% } else { %>
             <h5>No Comments Yet!</h5>
