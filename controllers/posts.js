@@ -37,7 +37,7 @@ async function create(req, res) {
         res.redirect(`/posts/${post._id}`);
       } catch (err) {
         console.log(err);
-        res.render('posts/new', { errorMsg: err.message });
+        res.render('posts/new', { title: 'Ask for help, share your thoughts or whatever you want!', errorMsg: err.message });
       }
 }
 

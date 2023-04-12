@@ -11,13 +11,13 @@
 <body>
   <nav class="nav-container">
     <div>
-      <span ><img  src="images/gigit-logo.png" id="gigit-title"/></span>
+      <span ><img src="/images/gigit-logo.png" id="gigit-title"/></span>
     </div>
     <div>
-      <a href="/" title='Home'>HOME&nbsp;&nbsp;</a>
-      <a href="/posts" title='All Posts'>ALL POSTS&nbsp;&nbsp;</a>
+      <a href="/" <%- title === 'Home' ? 'class="active"' : '' %>>HOME&nbsp;&nbsp;</a>
+      <a href="/posts" <%- title === 'All Posts' ? 'class="active"' : '' %>>ALL POSTS&nbsp;&nbsp;</a>
       <% if (user) { %>
-        <a href="/posts/new" title='New Post'>NEW POST&nbsp;&nbsp;</a>      
+        <a href="/posts/new" <%- title === 'New Post' ? 'class="active"' : '' %>>NEW POST&nbsp;&nbsp;</a>      
         <a href="/logout">LOG OUT</a>
       <% } else { %>
       <a href="/auth/google" class="login">LOG IN&nbsp;<img src="https://i.imgur.com/FHjYyi0.png"></a>

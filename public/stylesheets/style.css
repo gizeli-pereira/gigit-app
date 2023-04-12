@@ -11,6 +11,15 @@
   margin-top: 1em;
 }
 
+#welcome-page {
+margin: 200px;
+font-size: 30px;
+}
+
+#message {
+  margin: 400px;
+}
+
 body {
   background-color: #F2CCC3;
   margin: 0;
@@ -47,39 +56,41 @@ nav > a {
   margin-left: 2em;
 }
 
-#comment, a {
-  border-radius: 4px;
-  padding: 4px;
+.post-buttons, a {
+  border-radius: 30px;
   text-decoration: none;
-  font-size: 14px;
+  font-size: 15px;
+  box-shadow: inset 0 0 0 0 #E78F8E;
+  color: black;
+  padding: 0 .5em;
+  margin: .5em;
+  transition: color .5s ease-in-out, box-shadow .4s ease-in-out;
 }
 
- a:hover, #comment:hover, #delete-post-btn {
-  background-color: #FFE6E8;
-}
-
-a, #comment {
-  box-shadow: inset 0 0 0 0 #F48498;
-  color: #001219;
-  padding: 0 .25rem;
-  margin: 0 -.25rem;
-  transition: color .5s ease-in-out, box-shadow .3s ease-in-out;
- }
-
- a:hover, button:hover, #comment:hover, #delete-post-btn:hover  {
+ a:hover, button:hover, #post-buttons:hover  {
   color: #fff;
-  box-shadow: inset 200px 0 0 0 #F48498;
+  box-shadow: inset 300px 0 0 0 #E78F8E;
+  background-color: #FFE6E8;
  }
+
+ nav > a:hover:not(.active) {
+  color: white;
+  background-color: #ACD8AA;
+}
+
+nav > a.active {
+  color: white;
+  cursor: default;
+}
 
 .login {
-  display: flex;
-  justify-content: center;
   align-items: center;
-  height: 34px;
+  height: 15px;
 }
 
 .login img {
-  height: 30px;
+  height: 20px;
+  align-items: center;
 }
 
 .allposts-container {
@@ -132,10 +143,6 @@ a, #comment {
   padding: .3em 0;
 }
 
-.post-buttons {
-  padding: .5em;
-  border-radius: 30px;
-}
 
 .add-post-container {
   width: 95%;
