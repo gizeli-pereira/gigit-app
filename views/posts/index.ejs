@@ -6,7 +6,7 @@
     <% posts.sort(function(a, b) { return b.createdAt - a.createdAt; }).forEach(function(p) { %>
         
         <div class="user-post"><img alt="avatar" src="<%= p.userAvatar %>" referrerpolicy="no-referrer" ><%= p.userName %> -- </div>
-        <div id="post-date"><%= p.createdAt.toLocaleDateString() %></div>
+        <div id="post-date">posted on <%= p.createdAt.toLocaleDateString() %></div>
 
         <div class="user-post-content">
             <div class="post-card">

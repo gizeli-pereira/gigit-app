@@ -2,6 +2,7 @@
 
     <section id="show-page">
         <div class="post-card">
+            <div class="user-post-show"><img alt="avatar" src="<%= post.userAvatar %>" referrerpolicy="no-referrer" ><%= post.userName %> </div>
             <div id="post-title"><strong><%= post.title %></strong></div>
             <div><%- post.content %></div>
         </div>
@@ -12,23 +13,20 @@
 
         <div class="likes-wrapper">
             <div>
-            <% if (user) { %>
              <form action="/posts/<%= post._id %>/like" method="POST">
                  <button type="submit" class="post-buttons"><%= likesCount %> likes</button>
             </form>
-            <% } %>
             </div>
+
             <div>
-            <% if (user) { %>
                 <form action="/posts/<%= post._id %>/dislike" method="POST">
                     <button type="submit" class="post-buttons"><%= dislikesCount %> dislikes</button>
                 </form>
-            <% } %>
             </div>
         </div>
 
-        <h4>Leave a comment...</h4>
         <% if (user) { %>
+        <h4>Leave a comment...</h4>
         <form id="add-comment-form" method="POST" action="/posts/<%= post._id %>/comments">
                 <textarea name="content" id="myTextarea" cols="30" rows="5"></textarea>
             <script>

@@ -45,8 +45,8 @@
 ### YOU CAN VISIT THE PAGE HERE: 
 
 ### NEXT STEPS: 
-* Add Responsive Design;
+* Add Responsive Design for Mobile devices;
 * Add create/delete account;
-* Add like/dislike buttons.
+* Add like/dislike buttons for comments.
 
 #### You can see the Trello planing here: 
