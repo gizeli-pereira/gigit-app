@@ -19,8 +19,10 @@ async function index(req, res) {
 }
 
 async function show(req, res) {
-    const post = await Post.findById(req.params.id).populate('comments').populate('likes');
+    const post = await Post.findById(req.params.id).populate('comments');
+    //show the amount of comments of a post
     const commentsCount = post.comments.length;
+    //render the post, number of commnets,likes and dislikes in the show page using variables
     res.render('posts/show', { title: '', post, commentsCount, likesCount: post.likes, dislikesCount: post.dislikes});
     console.log(req.params.id);
   }
@@ -67,16 +69,24 @@ async function update(req, res) {
 
 async function like(req, res) {
     const post = await Post.findById(req.params.id);
-
+    //check if user already liked the post
+    if (post.likedBy.includes(req.user._id)) {
+         return res.status(400).send('You can only like once, my friend!');
+    }
+    // Add user to likedBy array in the model and increment likes count
+    post.likedBy.push(req.user._id);
     post.likes++;
     await post.save();
-    res.redirect(`/posts/${post._id}`); 
+    res.redirect(`/posts/${post._id}`);
    
   }
 
   async function dislike(req, res) {
     const post = await Post.findById(req.params.id);
-
+    if (post.dislikedBy.includes(req.user._id)) {
+        return res.status(400).send('You can only dislike once, my friend!');
+    }
+    post.dislikedBy.push(req.user._id);
     post.dislikes++;
     await post.save();
     res.redirect(`/posts/${post._id}`);

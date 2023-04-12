@@ -2,12 +2,6 @@ const mongoose = require('mongoose');
 
 const Schema = mongoose.Schema;
 
-// const likeSchema = new Schema({
-//     type: Number
-// }, {
-//     timestamps: true
-// });
-
 const commentSchema = new Schema({
     content: {
         type: String,
@@ -16,7 +10,6 @@ const commentSchema = new Schema({
     user: {
         type: Schema.Types.ObjectId,
         ref: 'User',
-        // required: true
     },
     userName: String,
     userAvatar: String
@@ -42,10 +35,18 @@ const postSchema = new Schema({
         type: Number,
         default: 0
     },
+    //likeBy/dislikedBy store the users ids
+    likedBy: [{
+        type: Schema.Types.ObjectId,
+        ref: 'User'
+    }],
+    dislikedBy: [{
+        type: Schema.Types.ObjectId,
+        ref: 'User'
+    }],
     user: {
         type: Schema.Types.ObjectId,
         ref: 'User',
-        // required: true
     },
     userName: String,
     userAvatar: String
