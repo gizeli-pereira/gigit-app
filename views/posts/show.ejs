@@ -10,8 +10,22 @@
         <button type="submit" class="post-buttons" ><a href="/posts/<%= post._id %>/edit">Edit Post</a></button>
         <% } %>
 
-        <br />
-
+        <div class="likes-wrapper">
+            <div>
+            <% if (user) { %>
+             <form action="/posts/<%= post._id %>/like" method="POST">
+                 <button type="submit" class="post-buttons"><%= likesCount %> likes</button>
+            </form>
+            <% } %>
+            </div>
+            <div>
+            <% if (user) { %>
+                <form action="/posts/<%= post._id %>/dislike" method="POST">
+                    <button type="submit" class="post-buttons"><%= dislikesCount %> dislikes</button>
+                </form>
+            <% } %>
+            </div>
+        </div>
 
         <h4>Leave a comment...</h4>
         <% if (user) { %>

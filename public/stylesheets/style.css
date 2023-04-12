@@ -5,7 +5,6 @@
 }
 
 #gigit-title {
-  /* border-radius: 50%; */
   height: 60px;
   padding-right: .5em;
   margin-top: 1em;
@@ -136,6 +135,13 @@ nav > a.active {
   justify-content: space-between;
   width: 40vw;
   margin-left: 2em;
+}
+
+.likes-wrapper {
+  display: flex;
+  padding: 1em;
+  justify-content:flex-start;
+  width: 50vw;
 }
 
 #post-title {

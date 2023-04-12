@@ -25,5 +25,9 @@ router.get('/:id/edit', ensureLoggedIn, postsCtrl.edit);
 // GET /posts/:id 
 router.get('/:id', postsCtrl.show);
 
+router.post('/:id/like', ensureLoggedIn, postsCtrl.like);
+
+router.post('/:id/dislike', ensureLoggedIn, postsCtrl.dislike);
+
 
 module.exports = router;

@@ -48,3 +48,5 @@
 * Add Responsive Design;
 * Add create/delete account;
 * Add like/dislike buttons.
+
+#### You can see the Trello planing here: 

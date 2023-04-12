@@ -7,7 +7,9 @@ module.exports = {
     create,
     delete: deletePost,
     edit,
-    update
+    update,
+    like,
+    dislike
 };
 
 
@@ -17,9 +19,9 @@ async function index(req, res) {
 }
 
 async function show(req, res) {
-    const post = await Post.findById(req.params.id).populate('comments');
+    const post = await Post.findById(req.params.id).populate('comments').populate('likes');
     const commentsCount = post.comments.length;
-    res.render('posts/show', { title: '', post, commentsCount});
+    res.render('posts/show', { title: '', post, commentsCount, likesCount: post.likes, dislikesCount: post.dislikes});
     console.log(req.params.id);
   }
 
@@ -31,6 +33,7 @@ async function create(req, res) {
     req.body.user = req.user._id;
     req.body.userName = req.user.name;
     req.body.userAvatar = req.user.avatar;
+    req.body.likes = [];
 
     try {
         const post = await Post.create(req.body);
@@ -61,3 +64,20 @@ async function update(req, res) {
         res.render('posts/edit', { title: '', post, errorMsg: err.message });
     }
 }
+
+async function like(req, res) {
+    const post = await Post.findById(req.params.id);
+
+    post.likes++;
+    await post.save();
+    res.redirect(`/posts/${post._id}`); 
+   
+  }
+
+  async function dislike(req, res) {
+    const post = await Post.findById(req.params.id);
+
+    post.dislikes++;
+    await post.save();
+    res.redirect(`/posts/${post._id}`);
+  }
