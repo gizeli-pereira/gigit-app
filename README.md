@@ -1,7 +1,7 @@
 # GIGIT App
 
 GIGIT is a Reddit inspired app. The user can log in with a Gmail account and interact via posts and comments with others users about various themes, like and dislike posts and delete their own posts or comments when logged in.
-#### YOU CAN VISIT THE PAGE HERE: 
+#### YOU CAN VISIT THE PAGE HERE: https://gigit-app.herokuapp.com/
 
 ### Home Page - User logged out
 
