@@ -13,7 +13,7 @@ GIGIT is a Reddit inspired app. The user can log in with a Gmail account and int
 
 ### All Posts Page  - User logged out
 
-![all posts - user logged out](/public/images/posts_loggedout.png)
+![all posts - user logged out](/public/images/allposts_loggedout.png)
 
 ### All Posts Page - User logged in
 
@@ -21,20 +21,16 @@ GIGIT is a Reddit inspired app. The user can log in with a Gmail account and int
 
 ### Add a Post Page
 
-![add a post page](/public/images/add_post.png)
+![add a post page](/public/images/new_post.png)
 
 ### Post Details - User logged out
 
 ![post user logged out](/public/images/post_details_loggedout.png)
 
 
-### Post Details - User logged in
+### Post Details and Comments - User logged in
 
-![post logged user](/public/images/post_likes.png)
-
-### Add a Comment on a Post Page
-
-![comment page](/public/images/posts_comments.png)
+![post logged user](/public/images/post_details_comments.png)
 
 ### Edit Post Page
 
