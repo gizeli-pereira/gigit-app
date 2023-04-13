@@ -6,42 +6,51 @@
             <div id="post-title"><strong><%= post.title %></strong></div>
             <div><%- post.content %></div>
         </div>
-        <br />
-        <% if (user?._id.equals(post.user)) { %>
-        <button type="submit" class="post-buttons" ><a href="/posts/<%= post._id %>/edit">Edit Post</a></button>
-        <% } %>
 
         <div class="likes-wrapper">
+            <!-- Show how many likes/dislikes a post has -->
             <div>
-             <form action="/posts/<%= post._id %>/like" method="POST">
-                 <button type="submit" class="post-buttons"><%= likesCount %> likes</button>
-            </form>
+                <form action="/posts/<%= post._id %>/like" method="POST">
+                    <button type="submit" class="post-buttons" title="likes"><%= likesCount %> likes</button>
+               </form>
             </div>
-
+   
             <div>
                 <form action="/posts/<%= post._id %>/dislike" method="POST">
-                    <button type="submit" class="post-buttons"><%= dislikesCount %> dislikes</button>
+                    <button type="submit" class="post-buttons" title="dislikes"><%= dislikesCount %> dislikes</button>
                 </form>
             </div>
+
+            <% if (user?._id.equals(post.user)) { %>
+            <button type="submit" class="post-buttons" title="edit post"><a href="/posts/<%= post._id %>/edit">Edit</a></button>
+            <% } %>
+
+            <% if (user?._id.equals(post.user)) { %>
+                <form action="/posts/<%= post._id %>?_method=DELETE" class="delete-form" method="POST">
+                    <button class="post-buttons" type="submit" title="delete post">X</button>
+                </form>
+            <% } %>
+              
         </div>
 
         <% if (user) { %>
-        <h4>Leave a comment...</h4>
-        <form id="add-comment-form" method="POST" action="/posts/<%= post._id %>/comments">
+            <h4>Leave a comment...</h4>
+            <form id="add-comment-form" method="POST" action="/posts/<%= post._id %>/comments">
                 <textarea name="content" id="myTextarea" cols="30" rows="5"></textarea>
-            <script>
-                tinymce.init({ 
-                selector: 'textarea#myTextarea',
-                plugins: 'autolink lists link image charmap print preview',
-                toolbar: 'undo redo | formatselect | bold italic backcolor | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image'
-                });
-            </script>
-            <br />
-            <button class="post-buttons" type="submit" value="Add Comment">Add Comment</button>
-        </form>
+                <!-- text editor for textarea -->
+                    <script>
+                        tinymce.init({ 
+                            selector: 'textarea#myTextarea',
+                            // plugins: 'autolink lists link image charmap print preview',
+                            toolbar: 'undo redo | formatselect | bold italic backcolor | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image'
+                        });
+                    </script>
+                <br />
+                <button class="post-buttons" type="submit" value="Add Comment" title="add comment">Add Comment</button>
+            </form>
         <% } %>
 
-        <br />
+       
         <br />
 
         <% if (post.comments.length) { %>
@@ -55,7 +64,7 @@
                     <div>
                         <% if (user?._id.equals(c.user)) { %>
                             <form action="/comments/<%= c._id %>?_method=DELETE" class="post-buttons" method="POST">
-                            <button type="submit" class="post-buttons">Delete Comment</button>
+                                <button type="submit" class="post-buttons" title="delete comment">Delete Comment</button>
                             </form>
                         <% } %>
                     </div>

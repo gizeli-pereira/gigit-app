@@ -4,23 +4,24 @@
 <div class="add-post-container">
   <% if (user) { %>
     <form id="add-post-form" action="/posts" method="POST">
-
       <input placeholder="Title" type="text" name="title" id="input-new-title">
 
       <br />
       <br />
   
       <textarea placeholder="Bla bla bla..." name="content" id="myTextarea" cols="30" rows="5"></textarea>
+      <!-- text editor for textarea -->
       <script>
         tinymce.init({
           selector: 'textarea#myTextarea',
-          plugins: 'autolink lists link image charmap print preview',
+          // plugins: 'autolink lists link image charmap print preview',
           toolbar: 'undo redo | formatselect | bold italic backcolor | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image'
         });
       </script>
+
       <br />
-      <br />
-      <button class="post-buttons" type="submit">Add Post</button>
+
+      <button class="post-buttons" type="submit" title="submit post">Submit</button>
     </form>
   <% } %>
     <p><%= errorMsg %></p>

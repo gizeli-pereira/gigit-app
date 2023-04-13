@@ -22,7 +22,7 @@ async function show(req, res) {
     const post = await Post.findById(req.params.id).populate('comments');
     //show the amount of comments of a post
     const commentsCount = post.comments.length;
-    //render the post, number of commnets,likes and dislikes in the show page using variables
+    //render the post, show number of comments,likes and dislikes in the page using variables
     res.render('posts/show', { title: '', post, commentsCount, likesCount: post.likes, dislikesCount: post.dislikes});
     console.log(req.params.id);
   }
@@ -69,6 +69,8 @@ async function update(req, res) {
 async function like(req, res) {
     const post = await Post.findById(req.params.id);
     //check if user already liked the post
+    // and if the user already liked it, message appears in a new page
+    // same for dislikes
     if (post.likedBy.includes(req.user._id)) {
          return res.status(400).send('You can only like once, my friend!');
     }

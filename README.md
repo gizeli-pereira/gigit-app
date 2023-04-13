@@ -49,6 +49,7 @@ GIGIT is a Reddit inspired app. The user can log in with a Gmail account and int
 1. EXPRESS.JS
 1. PASSPORT.JS
 1. MongoDB
+1. OAuth
 
 ### NEXT STEPS: 
 * Add Responsive Design for Mobile devices;
