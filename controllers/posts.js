@@ -35,14 +35,13 @@ async function create(req, res) {
     req.body.user = req.user._id;
     req.body.userName = req.user.name;
     req.body.userAvatar = req.user.avatar;
-    req.body.likes = [];
 
     try {
         const post = await Post.create(req.body);
         res.redirect(`/posts/${post._id}`);
       } catch (err) {
         console.log(err);
-        res.render('posts/new', { title: 'Ask for help, share your thoughts or whatever you want!', errorMsg: err.message });
+        res.render('posts/new', { title: 'Ask for help, share your thoughts or whatever you want!', errorMsg: '' });
       }
 }
 

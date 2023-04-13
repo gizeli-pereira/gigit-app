@@ -1,6 +1,7 @@
 # GIGIT App
 
 GIGIT is a Reddit inspired app. The user can log in with a Gmail account and interact via posts and comments with others users about various themes, like and dislike posts and delete their own posts or comments when logged in.
+#### YOU CAN VISIT THE PAGE HERE: 
 
 ### Home Page - User logged out
 
@@ -48,8 +49,6 @@ GIGIT is a Reddit inspired app. The user can log in with a Gmail account and int
 1. EXPRESS.JS
 1. PASSPORT.JS
 1. MongoDB
-
-### YOU CAN VISIT THE PAGE HERE: 
 
 ### NEXT STEPS: 
 * Add Responsive Design for Mobile devices;
